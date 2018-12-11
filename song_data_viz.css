@@ -1,0 +1,29 @@
+/* CSS declarations go here */
+
+#visjs{
+	height:500px;
+}
+.vis-label{
+	fill-opacity:0;
+}
+
+.vis-label:hover{
+	fill-opacity:1;
+}
+
+.vis{
+	border:1px solid;
+}
+
+.css-property-row {
+	border: 1px solid midnightblue;
+	border-radius: .3rem;
+	padding: .3rem;
+	background: lightblue;
+	color: black;
+	font-weight: bold;
+}
+
+.navbar-brand {
+	font-size: 36px;
+}

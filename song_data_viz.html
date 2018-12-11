@@ -1,0 +1,68 @@
+<head>
+	<meta name="viewport" content="width=device-width initial-scale=1 shrink-to-fit=no">
+	<title>Song data visualization</title>
+	<script src="vis.js"></script>
+</head>
+
+<body>
+	{{> song_data_visualization }}
+</body>
+
+<template name="song_data_visualization">
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="row"><a class="navbar-brand">Data visualization</a></div>
+		</div>
+	</nav>
+	
+	<div class="container">
+		<div class="row">
+			<h1>Single numeric features</h1>
+			<h3 class="text-primary">{{ description }}</h3>
+			<hr>
+			{{> song_viz_controls}}
+	
+			<hr>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-3">
+				{{> song_feature_list}}
+			</div>
+			<div class="col-sm-9">
+				<div id="visjs"></div>
+			</div>
+		</div>
+	</div>
+</template>	
+
+<template name="song_viz_controls">
+	<!-- list of available single features -->
+	<form>
+		<div class="col-sm-10 row">
+			<select class="form-control js-select-single-feature">
+				{{#each get_feature_names "single"}}
+					<option value="{{name}}">{{name}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="col-sm-1">
+			<button class="btn btn-sm js-show-blobs btn-primary">blobs</button>
+		</div>
+		<div class="col-sm-1">
+			<button class="btn btn-sm js-show-timeline btn-primary">timeline</button>
+		</div>
+	</form>
+	<hr>
+</template>	
+
+<template name="song_feature_list">
+	{{#each get_all_feature_values}}
+		<div style="margin-bottom:.5rem;" class="row css-property-row">
+			<p>{{ artist }}</p>
+			<p>{{ title }}</p>
+			<p>{{ value }}</p>
+		</div>
+	{{/each}}
+</template>
+
